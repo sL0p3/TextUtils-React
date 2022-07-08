@@ -30,10 +30,10 @@ export default function TextForm(props) {
   const [text,setText] = useState("");
   return (
     <>
-        <div className="container">
+        <div className="container" style= {{color : props.mode ==='dark' ? 'white' : '#38303D'}}>
             <h1 className= "my-3" >{props.heading}</h1>
             <div className="mb-3">
-                <textarea className="form-control" value = {text} onChange = {handleOnChange} id="myBox" rows="8"></textarea>
+                <textarea className="form-control" style= {{backgroundColor : props.mode ==='dark' ? '#38303D' : 'white', color :props.mode ==='dark' ? 'white' : '#38303D' }} value = {text} onChange = {handleOnChange} id="myBox" rows="8"></textarea>
             </div>
             <button className = "btn btn-warning mx-2" onClick={speakClick}>Speak</button>
             <button className = "btn btn-danger mx-2" onClick={clearClick}>Clear</button>
@@ -42,7 +42,7 @@ export default function TextForm(props) {
             <button className = "btn btn-primary mx-2" onClick={replaceClick}>Change all occourances</button>
             <button className = "btn btn-primary mx-2" onClick={extraSpaceClick}>Remove Extra Spaces</button>
         </div>
-        <div className="container my-5">
+        <div className="container my-5" style= {{color : props.mode ==='dark' ? 'white' : '#38303D'}}>
             <h3>Your text summary</h3>
             <p>{text.split(" ").length } words and {text.length} characters.</p>
             <p>Average time to read this text -- {0.008 * text.split(" ").length } minutes</p>

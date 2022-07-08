@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             {props.title}
@@ -32,7 +32,7 @@ function Navbar(props) {
                 </a>
               </li>
             </ul>
-            <form className="d-flex" role="search">
+            {/* <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
                 type="search"
@@ -42,7 +42,11 @@ function Navbar(props) {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
-            </form>
+            </form> */}
+            <div className="form-check form-switch">
+              <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+              <label className={`form-check-label text-${props.mode ==='light' ? 'dark' : 'light'}`} htmlFor="flexSwitchCheckDefault"><img style={{height :"25px",width:"25px"}} src="https://cdn-icons-png.flaticon.com/128/5225/5225707.png" alt="img" /></label>
+            </div>
           </div>
         </div>
       </nav>
