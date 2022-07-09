@@ -1,5 +1,5 @@
 ## Link to the website 
-# https://sl0p3.github.io/TextUtils-React/
+## https://sl0p3.github.io/TextUtils-React/
 
 # Getting Started with Create React App
 
