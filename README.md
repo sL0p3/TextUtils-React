@@ -1,4 +1,4 @@
-## Link to the website 
+# Link to the website 
 ## https://sl0p3.github.io/TextUtils-React/
 
 # Getting Started with Create React App
