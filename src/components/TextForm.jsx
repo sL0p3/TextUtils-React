@@ -40,19 +40,19 @@ export default function TextForm(props) {
             <div className="mb-3">
                 <textarea className="form-control" style= {{backgroundColor : props.mode ==='dark' ? '#38303D' : 'white', color :props.mode ==='dark' ? 'white' : '#38303D' }} value = {text} onChange = {handleOnChange} id="myBox" rows="8"></textarea>
             </div>
-            <button className = "btn btn-warning mx-2" onClick={speakClick}>Speak</button>
-            <button className = "btn btn-danger mx-2" onClick={clearClick}>Clear</button>
-            <button className = "btn btn-primary mx-2" onClick={upperCaseClick}>Convert to UpperCase</button>
-            <button className = "btn btn-primary mx-2" onClick={lowerCaseClick}>Convert to LowerCase</button>
-            <button className = "btn btn-primary mx-2" onClick={replaceClick}>Change all occourances</button>
-            <button className = "btn btn-primary mx-2" onClick={extraSpaceClick}>Remove Extra Spaces</button>
+            <button disabled= {text.length=== 0} className = "btn btn-warning mx-2 my-1" onClick={speakClick}>Speak</button>
+            <button disabled= {text.length=== 0} className = "btn btn-danger mx-2 my-1" onClick={clearClick}>Clear</button>
+            <button disabled= {text.length=== 0} className = "btn btn-primary mx-2 my-1" onClick={upperCaseClick}>Convert to UpperCase</button>
+            <button disabled= {text.length=== 0} className = "btn btn-primary mx-2 my-1" onClick={lowerCaseClick}>Convert to LowerCase</button>
+            <button disabled= {text.length=== 0} className = "btn btn-primary mx-2 my-1" onClick={replaceClick}>Change all occourances</button>
+            <button disabled= {text.length=== 0} className = "btn btn-primary mx-2 my-1" onClick={extraSpaceClick}>Remove Extra Spaces</button>
         </div>
         <div className="container my-5" style= {{color : props.mode ==='dark' ? 'white' : '#38303D'}}>
             <h3>Your text summary</h3>
-            <p>{text.length >0 ? text.trim().split(" ").length :0 } words and {text.length} characters.</p>
-            <p>Average time to read this text -- {0.008 * (text.length >0 ? text.trim().split(" ").length :0 )} minutes</p>
+            <p>{text.split(" ").filter((ele)=>{return ele.length !== 0}).length} words and {text.length} characters.</p>
+            <p>Average time to read this text -- {0.008 * text.split(" ").filter((ele)=>{return ele.length !== 0}).length} minutes</p>
             <h4>Preview</h4>
-            <p>{text}</p>
+            <p>{text.length >0 ? text :"Nothing to Preview"}</p>
         </div>
     </>
   )
